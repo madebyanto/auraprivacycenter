@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Privacy Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #E30AF5, #F174FF);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+    }
+
+    .navbar img {
+      height: 40px;
+      border-radius: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto 0;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 600;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header p {
+      font-size: 1.2em;
+      font-weight: 300;
+      margin-bottom: 30px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .widget {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .widget:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .widget::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: left 0.4s ease;
+    }
+
+    .widget:hover::after {
+      left: 100%;
+    }
+
+    .widget img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    .widget-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .widget h2 {
+      font-size: 1.5em;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .widget p {
+      font-size: 1em;
+      font-weight: 300;
+      margin: 5px 0 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      width: 80%;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .popup-content h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .popup-content p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .popup-content button {
+      padding: 10px 20px;
+      border: none;
+      background: #E30AF5;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .popup-content button:hover {
+      background: #c109d2;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <img src="auraplus.png" alt="Aura Logo">
+    <div class="nav-links">
+      <a href="https://wa.me/13177699431" target="_blank">Siamo qui!</a>
+      <a onclick="openPopup('popupWork')">Lavora con noi</a>
+      <a onclick="openPopup('popupTrademark')">Informazioni sul marchio protetto</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Aura Privacy Center</h1>
+      <p>Trova qui le risposte più cumuni sulla tua privacy con Aura Studio</p>
+    </header>
+
+    <div class="buttons">
+      <div class="widget" onclick="location.href='delete_an_account.html'">
+        <div class="widget-content">
+          <h2>[Aura+] Eliminazine di un'ccount Aura</h2>
+          <p>Come eliminare un'account Aura</p>
+        </div>
+      </div>
+
+      <div class="widget" onclick="location.href='privacy_policy_auraplus.html'">
+        <div class="widget-content">
+          <h2>[Aura+] Privacy Policy</h2>
+          <p>Scarica software e strumenti sviluppati da noi.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- POPUP -->
+  <div id="popupWork" class="popup">
+    <div class="popup-content">
+      <h2>Lavora con noi</h2>
+      <p>Stiamo cercando talenti creativi e motivati! Scrivici su WhatsApp o compila il modulo nella sezione dedicata.</p>
+      <button onclick="closePopup('popupWork')">Chiudi</button>
+      <button onclick="location.href='https://3cgtsgco.forms.app/aurastudio-staff-provino'">Modulo staff</button>
+    </div>
+  </div>
+
+  <div id="popupTrademark" class="popup">
+    <div class="popup-content">
+      <h2>Marchio protetto</h2>
+      <p>Aura Studio è un marchio registrato e protetto. L'uso non autorizzato del nome o del logo è vietato.</p>
+      <button onclick="closePopup('popupTrademark')">Chiudi</button>
+      <button onclick="location.href='https://github.com/madebyanto/aurastudioitalia/releases/download/aura/terminilegali.pdf'">Documento legale (PDF)</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
